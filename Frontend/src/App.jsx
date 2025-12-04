@@ -8,13 +8,16 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/register";
+import NotFound from "./components/NotFound";
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
 
 function App() {
   const [user, setUser] = useState(null);
-  const [eroor, serError] = useState("");
+  const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+
   console.log(user);
 
   useEffect(() => {
@@ -27,22 +30,38 @@ function App() {
           });
           setUser(res.data);
         } catch (err) {
-          serError("Failed to fetch user data");
-          localStorage.removeIteme("token");
+          setError("Failed to fetch user data");
+          localStorage.removeItem("token");
         }
       }
+      setIsLoading(false);
     };
 
     fetchUser();
   }, []);
 
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-gray-900 flex items-center justify-center">
+        <div className="text-xl text-white">Loading...</div>
+      </div>
+    );
+  }
+
   return (
     <Router>
-      <Navbar />
+      <Navbar user={user} setUser={setUser} />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login setUser={setUser} />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/" element={<Home user={user} error={error} />} />
+        <Route
+          path="/login"
+          element={user ? <Navigate to="/" /> : <Login setUser={setUser} />}
+        />
+        <Route
+          path="/register"
+          element={user ? <Navigate to="/" /> : <Register setUser={setUser} />}
+        />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
   );
