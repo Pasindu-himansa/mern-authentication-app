@@ -3,12 +3,12 @@
 </div>
 
 ![Profile page](./Images/Authentic-User.png)
-![Login-page](./images/Login-page.png)
-![Register](./images/Register-page.png)
+![Login-page](./Images/Login-page.png)
+![Register](./Images/Register-page.png)
 
 ### A full-stack authentication application built with **MongoDB, Express, React, and Node.js.** Designed as a clean, production-ready auth boilerplate that handles the heavy lifting of user identity, so you can focus on building your actual product on top of it.
 
-### The backend exposes a secure REST API with user registration, login, and JWT-based protected routes. Passwords are never stored in plain text — they are salted and hashed using bcryptjs before hitting the database. Authentication tokens are signed with a secret key and validated on every protected request via a custom middleware layer.
+### The backend exposes a secure REST API with user registration, login, and JWT-based protected routes. Passwords are never stored in plain text, they are salted and hashed using bcryptjs before hitting the database. Authentication tokens are signed with a secret key and validated on every protected request via a custom middleware layer.
 
 ### The frontend is built with React 19.2 and Vite, giving you an ultra-fast development experience with hot module replacement. Routing is handled by React Router DOM, API calls are managed through Axios, and the UI is styled with Tailwind CSS 4, keeping the interface clean, responsive, and easy to customize.
 
