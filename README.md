@@ -2,9 +2,9 @@
   <h1>MERN Authentication App</h1>
 </div>
 
-![home page](./images/homepage01.png)
-![completed](./images/completed.png)
-![update](./images/update.png)
+![Profile page](./Images/Authentic-User.png)
+![Login-page](./images/Login-page.png)
+![Register](./images/Register-page.png)
 
 ### A full-stack authentication application built with **MongoDB, Express, React, and Node.js.** Designed as a clean, production-ready auth boilerplate that handles the heavy lifting of user identity, so you can focus on building your actual product on top of it.
 
